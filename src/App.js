@@ -1,5 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
+import Schedule from './Schedule.js';
 
 const players = [
   { title: 'De\'aaron Fox', id: 1, position: "Point Guard", img: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTZggNZD_yJGGArXNOrdJy6eeBzVJu1hjgjgnNjJAfbWApquCMmC96IzHvpI2D1Wpsy90PGf_tNp5vPT8k" },
@@ -21,6 +28,18 @@ function App() {
        </ul>
        <img class = "logo" src = "https://sportslogohistory.com/wp-content/uploads/2018/01/sacramento_kings_2016-present-a.png"></img>
        <div class = "Schedule"> <button onClick = {handleClick}> Schedule</button> </div>
+       <Router>
+           <div className="Links">
+              <ul>
+                <li>
+                  <Link to="/schedule">Schedule</Link>  
+                </li>
+              </ul>
+              <Routes>
+                 <Route exact path='/schedule' element={< Schedule />}></Route>
+            </Routes>
+           </div>
+       </Router>
     </div>
   );
 }
